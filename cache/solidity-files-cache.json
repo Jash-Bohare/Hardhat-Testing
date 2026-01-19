@@ -72,6 +72,42 @@
       "artifacts": [
         "console"
       ]
+    },
+    "E:\\Web3\\Hardhat-Testing\\Contracts\\SimpleStorage.sol": {
+      "lastModificationDate": 1768799454029,
+      "contentHash": "52f265f03c2ec9b200601b06dfdf83bb",
+      "sourceName": "Contracts/SimpleStorage.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "SimpleStorage"
+      ]
     }
   }
 }
