@@ -108,6 +108,42 @@
       "artifacts": [
         "SimpleStorage"
       ]
+    },
+    "E:\\Web3\\Hardhat-Testing\\Contracts\\Bank.sol": {
+      "lastModificationDate": 1768879418870,
+      "contentHash": "ecf198d46815f978c8aea63d1f57e5c6",
+      "sourceName": "Contracts/Bank.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "Bank"
+      ]
     }
   }
 }
