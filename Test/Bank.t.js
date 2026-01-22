@@ -5,11 +5,11 @@ describe("Bank Contract", function(){
     let bank;
     let owner;
     let user;
-    let attacker;
+    let user1, user2;
 
     beforeEach(async function(){
         Bank = await ethers.getContractFactory("Bank");
-        [owner, user, addr2] = await ethers.getSigners();
+        [owner, user, addr2, user1, user2] = await ethers.getSigners();
         bank = await Bank.deploy();
     });
 
@@ -69,6 +69,23 @@ describe("Bank Contract", function(){
             await bank.connect(user).withdraw(amount1);
 
             expect(await bank.balanceOf(user.address)).to.equal(0);
+        });
+    });
+
+    describe("Emergency Withdrawal", function(){
+        it("Should revert when called by non owner", async function(){
+            await expect(bank.connect(user).emergencyWithdraw()).to.be.revertedWithCustomError(bank, "NotOwner");
+        });
+
+        it("Should transfer entire contract balance to owner", async function(){
+            const amount1 = ethers.utils.parseEther("2");
+            const amount2 = ethers.utils.parseEther("1");
+            const total = amount1.add(amount2);
+
+            await bank.connect(user1).deposit({value: amount1});
+            await bank.connect(user2).deposit({value: amount2});
+            
+            await expect(bank.connect(owner).emergencyWithdraw()).to.changeEtherBalance(owner, total);
         });
     });
 })
