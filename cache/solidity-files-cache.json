@@ -216,6 +216,42 @@
       "artifacts": [
         "EventRegistry"
       ]
+    },
+    "E:\\Web3\\Hardhat-Testing\\Contracts\\Escrow.sol": {
+      "lastModificationDate": 1769175306419,
+      "contentHash": "fe8ef3dce20643f5855d80c296d184d3",
+      "sourceName": "Contracts/Escrow.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "Escrow"
+      ]
     }
   }
 }
