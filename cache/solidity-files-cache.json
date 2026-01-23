@@ -144,6 +144,42 @@
       "artifacts": [
         "Bank"
       ]
+    },
+    "E:\\Web3\\Hardhat-Testing\\Contracts\\AccessVault.sol": {
+      "lastModificationDate": 1769134885306,
+      "contentHash": "ec87767447bf5a07877ef0920960dd4b",
+      "sourceName": "Contracts/AccessVault.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "AccessVault"
+      ]
     }
   }
 }
