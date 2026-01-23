@@ -1,4 +1,3 @@
-const { getContractFactory } = require("@nomiclabs/hardhat-ethers/types");
 const {expect} = require("chai");
 
 describe("AccessVault Contract", function(){
@@ -21,9 +20,9 @@ describe("AccessVault Contract", function(){
         });
 
         it("Should revert when non-owner try to addAuthorized, removeAuthorized and updateSecret", async function(){
-            await expect(accessVault.connect(user1).addAuthorized()).to.revertedWithCustomError(accessVault, "NotOwner");
-            await expect(accessVault.connect(user1).removeAuthorized()).to.revertedWithCustomError(accessVault, "NotOwner");
-            await expect(accessVault.connect(user1).updateSecret()).to.revertedWithCustomError(accessVault, "NotOwner");
+            await expect(accessVault.connect(user1).addAuthorized(user1.address)).to.revertedWithCustomError(accessVault, "NotOwner");
+            await expect(accessVault.connect(user1).removeAuthorized(user1.address)).to.revertedWithCustomError(accessVault, "NotOwner");
+            await expect(accessVault.connect(user1).updateSecret(2)).to.revertedWithCustomError(accessVault, "NotOwner");
         });
     });
 })
