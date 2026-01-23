@@ -180,6 +180,42 @@
       "artifacts": [
         "AccessVault"
       ]
+    },
+    "E:\\Web3\\Hardhat-Testing\\Contracts\\EventRegistry.sol": {
+      "lastModificationDate": 1769142730551,
+      "contentHash": "3b915c133b9fd16e4911aca342d40cda",
+      "sourceName": "Contracts/EventRegistry.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "EventRegistry"
+      ]
     }
   }
 }
