@@ -13,7 +13,7 @@ describe("AccessVault Contract", function () {
     beforeEach(async function () {
         [owner, user1, user2] = await ethers.getSigners();
         AccessVault = await ethers.getContractFactory("AccessVault");
-        accessVault = await AccessVault.connect(owner).deploy(SECRET);
+        accessVault = await AccessVault.deploy(SECRET);
     });
 
     describe("Ownership", function () {
@@ -28,8 +28,9 @@ describe("AccessVault Contract", function () {
         });
 
         it("Owner can update SECRET", async function () {
-            await accessVault.connect(owner).addAuthorized(owner.address);
             await accessVault.connect(owner).updateSecret(NEW_SECRET)
+            await accessVault.connect(owner).addAuthorized(owner.address);
+            
             expect(await accessVault.connect(owner).readSecret()).to.equal(NEW_SECRET);
         });
     });
@@ -37,6 +38,7 @@ describe("AccessVault Contract", function () {
     describe("Authorization", function () {
         it("Authorized user should read the secret", async function () {
             await accessVault.connect(owner).addAuthorized(user1.address);
+
             expect(await accessVault.isAuthorized(user1.address)).to.equal(true);
             expect(await accessVault.connect(user1).readSecret()).to.equal(SECRET);
         });
@@ -47,12 +49,14 @@ describe("AccessVault Contract", function () {
 
         it("Authorized user cannot update SECRET", async function () {
             await accessVault.connect(owner).addAuthorized(user1.address);
+
             await expect(accessVault.connect(user1).updateSecret(NEW_SECRET)).to.be.revertedWithCustomError(accessVault, "NotOwner");
         });
 
         it("Removed user should lose access", async function () {
             await accessVault.connect(owner).addAuthorized(user1.address);
             await accessVault.connect(owner).removeAuthorized(user1.address);
+
             expect(await accessVault.isAuthorized(user1.address)).to.equal(false);
             await expect(accessVault.connect(user1).readSecret()).to.be.revertedWithCustomError(accessVault, "NotAuthorized");
         });
@@ -60,6 +64,7 @@ describe("AccessVault Contract", function () {
         it("Should handle multiple users to behave independently", async function () {
             await accessVault.connect(owner).addAuthorized(user1.address);
             await accessVault.connect(owner).addAuthorized(user2.address);
+
             expect(await accessVault.connect(user1).readSecret()).to.equal(SECRET);
             expect(await accessVault.connect(user2).readSecret()).to.equal(SECRET);
         });
