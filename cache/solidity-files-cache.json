@@ -252,6 +252,42 @@
       "artifacts": [
         "Escrow"
       ]
+    },
+    "E:\\Web3\\Hardhat-Testing\\Contracts\\TimeLock.sol": {
+      "lastModificationDate": 1769232165817,
+      "contentHash": "296b3f3384edb2ec323a7ee109b17f31",
+      "sourceName": "Contracts/TimeLock.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "TimeLock"
+      ]
     }
   }
 }
