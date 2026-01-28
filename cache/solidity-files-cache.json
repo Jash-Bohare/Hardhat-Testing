@@ -288,6 +288,42 @@
       "artifacts": [
         "TimeLock"
       ]
+    },
+    "E:\\Web3\\Hardhat-Testing\\Contracts\\Faucet.sol": {
+      "lastModificationDate": 1769519243371,
+      "contentHash": "c9f96671eb6178111e5b62ad40064f01",
+      "sourceName": "Contracts/Faucet.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "Faucet"
+      ]
     }
   }
 }
