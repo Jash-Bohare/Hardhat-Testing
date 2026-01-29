@@ -324,6 +324,80 @@
       "artifacts": [
         "Faucet"
       ]
+    },
+    "E:\\Web3\\Hardhat-Testing\\Contracts\\RewardToken.sol": {
+      "lastModificationDate": 1769659061612,
+      "contentHash": "4dcf2f0e37a2bc80e9363893ac8cd80a",
+      "sourceName": "Contracts/RewardToken.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "RewardToken"
+      ]
+    },
+    "E:\\Web3\\Hardhat-Testing\\Contracts\\StakingVault.sol": {
+      "lastModificationDate": 1769659078637,
+      "contentHash": "d8c7fffb67f0f6e7dc4f54c26adaeff3",
+      "sourceName": "Contracts/StakingVault.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./RewardToken.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "StakingVault"
+      ]
     }
   }
 }
