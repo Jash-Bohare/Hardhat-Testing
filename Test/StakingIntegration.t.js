@@ -35,10 +35,6 @@ describe('Vault Integration Tests', function () {
     });
 
     describe("Withdrawal", function () {
-        it("Should revert when staked nothing", async function () {
-            await expect(vault.connect(user1).withdraw()).to.be.revertedWithCustomError(vault, "NothingStaked");
-        });
-
         it("Should withdraw ETH, mint reward tokens and reset stake", async function () {
             await vault.connect(user1).stake({ value: TEN_ETH });
             const REWARD = TEN_ETH.div(10);
@@ -53,21 +49,61 @@ describe('Vault Integration Tests', function () {
         });
     });
 
-    describe("Multiple users", function(){
-        it("Should allow multiple user to stake and withdraw", async function(){
+    describe("Multiple users", function () {
+        it("Should allow multiple user to stake and withdraw", async function () {
             await vault.connect(user1).stake({ value: TEN_ETH });
             await vault.connect(user2).stake({ value: FIVE_ETH });
 
             const REWARD1 = TEN_ETH.div(10);
-            const REWARD2 = FIVE_ETH.div(10);   
+            const REWARD2 = FIVE_ETH.div(10);
 
             await expect(vault.connect(user1).withdraw()).to.changeEtherBalances([user1, vault], [TEN_ETH, TEN_ETH.mul(-1)]);
             expect(await vault.stakes(user1.address)).to.equal(0);
-            expect(await token.balanceOf(user1.address)).to.equal(REWARD1); 
+            expect(await token.balanceOf(user1.address)).to.equal(REWARD1);
 
             await expect(vault.connect(user2).withdraw()).to.changeEtherBalances([user2, vault], [FIVE_ETH, FIVE_ETH.mul(-1)]);
             expect(await vault.stakes(user2.address)).to.equal(0);
             expect(await token.balanceOf(user2.address)).to.equal(REWARD2);
+        });
+    });
+
+    describe("Invariants", function () {
+        it("Vault ETH balance should always equal total user stakes", async function () {
+            await vault.connect(user1).stake({ value: TEN_ETH });
+            await vault.connect(user2).stake({ value: FIVE_ETH });
+
+            const vaultBalance = await ethers.provider.getBalance(vault.address);
+            const totalStakes =
+                (await vault.stakes(user1.address)).add(await vault.stakes(user2.address));
+
+            expect(vaultBalance).to.equal(totalStakes);
+        });
+    });
+
+    describe("Edge cases", function () {
+        it("Double withdraw should always fail", async function () {
+            await vault.connect(user1).stake({ value: TEN_ETH });
+            await vault.connect(user1).withdraw();
+
+            await expect(vault.connect(user1).withdraw()).to.be.revertedWithCustomError(vault, "NothingStaked");
+        });
+
+        it("Zero ETH stake still creates zero reward", async function () {
+            await vault.connect(user1).stake({ value: 0 });
+
+            await expect(vault.connect(user1).withdraw()).to.be.revertedWithCustomError(vault, "NothingStaked");
+        });
+    });
+
+    describe("Attacker behavior", function () {
+        it("User cannot steal rewards by calling withdraw twice", async function () {
+            await vault.connect(user1).stake({ value: TEN_ETH });
+
+            await vault.connect(user1).withdraw();
+
+            await expect(vault.connect(user1).withdraw()).to.be.revertedWithCustomError(vault, "NothingStaked");
+
+            expect(await token.balanceOf(user1.address)).to.equal(TEN_ETH.div(10));
         });
     });
 });
