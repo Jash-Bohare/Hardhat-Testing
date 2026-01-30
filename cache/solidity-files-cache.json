@@ -362,7 +362,7 @@
       ]
     },
     "E:\\Web3\\Hardhat-Testing\\Contracts\\StakingVault.sol": {
-      "lastModificationDate": 1769659078637,
+      "lastModificationDate": 1769686747049,
       "contentHash": "d8c7fffb67f0f6e7dc4f54c26adaeff3",
       "sourceName": "Contracts/StakingVault.sol",
       "solcConfig": {
@@ -397,6 +397,42 @@
       ],
       "artifacts": [
         "StakingVault"
+      ]
+    },
+    "E:\\Web3\\Hardhat-Testing\\Contracts\\Contract5.sol": {
+      "lastModificationDate": 1769770025699,
+      "contentHash": "d8a3cacd27142e05cb133e0a917e6a88",
+      "sourceName": "Contracts/Contract5.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "Game5"
       ]
     }
   }
