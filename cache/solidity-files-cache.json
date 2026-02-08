@@ -436,8 +436,8 @@
       ]
     },
     "E:\\Web3\\Hardhat-Testing\\Contracts\\PartySplit.sol": {
-      "lastModificationDate": 1770562163562,
-      "contentHash": "b98f8181bc6f313e6cff97751b9e577e",
+      "lastModificationDate": 1770565552027,
+      "contentHash": "73e0f884ee901195cfce6f94acf2a946",
       "sourceName": "Contracts/PartySplit.sol",
       "solcConfig": {
         "version": "0.8.28",
@@ -465,10 +465,10 @@
       },
       "imports": [],
       "versionPragmas": [
-        "^0.8.4"
+        "^0.8.20"
       ],
       "artifacts": [
-        "Party"
+        "PartySplit"
       ]
     }
   }
