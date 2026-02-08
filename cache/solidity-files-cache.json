@@ -434,6 +434,42 @@
       "artifacts": [
         "Game5"
       ]
+    },
+    "E:\\Web3\\Hardhat-Testing\\Contracts\\PartySplit.sol": {
+      "lastModificationDate": 1770562163562,
+      "contentHash": "b98f8181bc6f313e6cff97751b9e577e",
+      "sourceName": "Contracts/PartySplit.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "Party"
+      ]
     }
   }
 }
