@@ -470,6 +470,42 @@
       "artifacts": [
         "PartySplit"
       ]
+    },
+    "E:\\Web3\\Hardhat-Testing\\Contracts\\DeadManSwitch.sol": {
+      "lastModificationDate": 1770610513434,
+      "contentHash": "d39e0da01947a602f94d19d357618c90",
+      "sourceName": "Contracts/DeadManSwitch.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "Switch"
+      ]
     }
   }
 }
