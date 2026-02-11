@@ -506,6 +506,42 @@
       "artifacts": [
         "Switch"
       ]
+    },
+    "E:\\Web3\\Hardhat-Testing\\Contracts\\MultiSig.sol": {
+      "lastModificationDate": 1770787065689,
+      "contentHash": "4eb3c74f97bbc3b6cde4d4361116940b",
+      "sourceName": "Contracts/MultiSig.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "MultiSig"
+      ]
     }
   }
 }
